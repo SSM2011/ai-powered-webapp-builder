@@ -1,11 +1,12 @@
 import { onBoardUser } from '@/modules/auth/actions'
+import Navbar from '@/modules/home/componenets/Navbar';
 import React from 'react'
 
 const Layout = async ({ children }) => {
     await onBoardUser();
     return (
         <main className="flex flex-col min-h-screen relative overflow-x-hidden bg-background">
-
+            <Navbar />
             <div
                 className="fixed inset-0 -z-10
                 bg-background
