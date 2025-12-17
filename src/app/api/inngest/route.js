@@ -1,11 +1,12 @@
 import { serve } from "inngest/next";
 import { inngest } from "../../../inngest/client";
-import { helloWorld } from "./functions.js";
+import { codeAgentFuntion } from "../../../inngest/functions";
 
-// Create an API that serves zero functions
+// Ensure this route runs in the Node.js runtime (not Edge)
+export const runtime = "nodejs";
+
+// Create an API that serves Inngest functions
 export const { GET, POST, PUT } = serve({
   client: inngest,
-  functions: [
-    helloWorld
-  ],
+  functions: [codeAgentFuntion],
 });
